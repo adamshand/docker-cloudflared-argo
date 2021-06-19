@@ -1,0 +1,25 @@
+---
+version: '3'
+services:
+  argo:
+    image: cloudflare/cloudflared:2021.5.10-amd64
+    container_name: argo
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    #  - gateway:192.168.32.1
+    volumes:
+      - ./conf:/etc/cloudflared
+    # command: >
+    #  tunnel --no-autoupdate 
+    #  --hostname music.haume.nz --url http://navidrome
+    command: tunnel --config /etc/cloudflared/haume.yml run
+    environment:
+      - TUNNEL_ORIGIN_CERT=/etc/cloudflared/cert.pem
+      - TUNNEL_LOGLEVEL=info  # trace, debug, info, warn, error, fatal, panic
+    networks:
+      - argo
+
+networks:
+  argo:
+    external: true

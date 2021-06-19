@@ -1,0 +1,14 @@
+tunnel: xxxxxxxx-yyyy-zzzz-aaaa-bbbbbbbbbbbb
+credentials-file: ~/cloudflared/xxxxxxxx-yyyy-zzzz-aaaa-bbbbbbbbbbbb.json
+
+ingress:
+  - hostname: music.example.nz
+    service:  http://navidrome:80
+  - hostname: books.example.nz
+    service:  http://calibre-web:8083
+  - hostname: kiaora.example.nz
+    service:  hello_world
+  - hostname: home.example.nz
+    service:  ssh://192.168.32.1:22
+  - service:  http_status:404
+
