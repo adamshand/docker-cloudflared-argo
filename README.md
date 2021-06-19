@@ -1,4 +1,6 @@
 
+See original post at: https://www.reddit.com/r/selfhosted/comments/o39ok6/has_anyone_got_argo_tunnels_to_multiple_endpoints/
+
 > UPDATE: I now have this working. When you are proxying a single host the `cloudflared` daemon creates the DNS entries for you.  When you are using a config file you must create the DNS entries manually. You can either do this at cloudflare.com or use the command line:  
 >  
 > `# cloudflared tunnel route dns xxxxxxx-1356-xxxx-af44-237e463731 music.example.nz`  
@@ -15,7 +17,7 @@ Has anyone got Argo tunnels to multiple endpoints working?
 
 Here's my setup:
 
-## docker-compose.yml
+## docker-compose.yml (multiple sites)
 
     ---
     version: '3'
