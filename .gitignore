@@ -1,0 +1,5 @@
+.*.un~
+.env
+conf/*.json
+conf/*.pem
+data/

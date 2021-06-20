@@ -7,19 +7,20 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    #  - gateway:192.168.32.1
     volumes:
       - ./conf:/etc/cloudflared
+    # for a single host mapping, adds dns entries for you
     # command: >
     #  tunnel --no-autoupdate 
     #  --hostname music.haume.nz --url http://navidrome
+    # for multiple host mappings, you must manually add dns entries pointing to the Argo tunnel
     command: tunnel --config /etc/cloudflared/haume.yml run
     environment:
       - TUNNEL_ORIGIN_CERT=/etc/cloudflared/cert.pem
       - TUNNEL_LOGLEVEL=info  # trace, debug, info, warn, error, fatal, panic
     networks:
-      - argo
+      - traefik
 
 networks:
-  argo:
+  traefik:
     external: true
