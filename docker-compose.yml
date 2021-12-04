@@ -19,8 +19,8 @@ services:
       - TUNNEL_ORIGIN_CERT=/etc/cloudflared/cert.pem
       - TUNNEL_LOGLEVEL=info  # trace, debug, info, warn, error, fatal, panic
     networks:
-      - traefik
+      - caddy
 
 networks:
-  traefik:
+  caddy:
     external: true
