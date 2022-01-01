@@ -2,8 +2,8 @@ tunnel: 8c6a17eb-1356-4ae5-af44-237e46163731
 credentials-file: /etc/cloudflared/8c6a17eb-1356-4ae5-af44-237e46163731.json
 
 ingress:
-  - hostname: music.haume.nz
-    service:  http://172.16.1.50:4534
+  - hostname: cloud.haume.nz
+    service:  http://172.16.1.50:8082
   - hostname: media.haume.nz
     service:  http://172.16.1.50:8096
   - hostname: books.haume.nz
